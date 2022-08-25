@@ -1,0 +1,16 @@
+<h1>Selected List:</h1>
+<%= @list.name %>
+<br>
+<br>
+<%= link_to "add a movie", new_list_bookmark_path(@list) %>
+<% @list.bookmarks.each do |bm|%>
+  <div class="card">
+    <h2><%= bm.movie.title %></h2>
+    <p><%= bm.movie.overview %></p>
+    <p><%= bm.comment %></p>
+    <p><%= link_to 'delete', bookmark_path(bm), data: {tubro_method: :delete} %></p>
+  </div>
+<% end %>
+
+
+<%# <p> or delete = 'html'.html_safe</p> %>
